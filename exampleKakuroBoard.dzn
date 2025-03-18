@@ -1,0 +1,29 @@
+% Archivo de datos para el modelo Kakuro (version ajustada)
+
+numWords = 15;
+maxLength = 5;
+
+% Cada fila de wordIndices indica los índices de las variables del segmento.
+% Se usa 0 para posiciones no utilizadas.
+wordIndices = array2d(1..numWords, 1..maxLength, [
+  % Segmentos horizontales:
+  1,  2,  0,  0,  0,      % Palabra 1: X1, X2   => suma 3
+  3,  4,  0,  0,  0,      % Palabra 2: X3, X4   => suma 6
+  5,  6,  7,  8,  9,      % Palabra 3: X5, X6, X7, X8, X9  => suma 18
+  10, 11, 12, 0,  0,      % Palabra 4: X10, X11, X12  => suma 23
+  13, 14, 0,  0,  0,      % Palabra 5: X13, X14  => suma 9
+  15, 16, 0,  0,  0,      % Palabra 6: X15, X16  => suma 6
+  17, 18, 0,  0,  0,      % Palabra 7: X17, X18  => suma 15
+  19, 20, 0,  0,  0,      % Palabra 8: X19, X20  => suma 12
+
+  % Segmentos verticales:
+  1,  5,  0,  0,  0,      % Palabra 9:  X1, X5  => suma 4
+  13, 17, 0,  0,  0,      % Palabra 10: X13, X17  => suma 17
+  2,  6, 10, 14, 18,      % Palabra 11: X2, X6, X10, X14, X18  => suma 22
+  7,  11, 0,  0,  0,      % Palabra 12: X7, X11  => suma 16
+  3,  8, 12, 15, 19,      % Palabra 13: X3, X8, X12, X15, X19  => suma 16
+  4,  9,  0,  0,  0,      % Palabra 14: X4, X9  => suma 3
+  16, 20, 0,  0,  0       % Palabra 15: X16, X20  => suma 14
+]);
+
+wordTarget = [3, 6, 18, 23, 9, 6, 15, 12, 4, 17, 22, 16, 16, 3, 14];
