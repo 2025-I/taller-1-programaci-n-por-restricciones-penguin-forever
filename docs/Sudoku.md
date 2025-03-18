@@ -108,8 +108,8 @@ Utiliza la búsqueda interna del solver sin especificar heurísticas, confiando 
 - Falta de personalización en la estrategia de búsqueda.  
 - Puede no ser óptima en problemas con restricciones muy complejas.
 
-![Texto alternativo](docs/images/SudokuBaseArbol.png)
-![Texto alternativo](docs/images/SudokuBaseTiempo.png)
+![Texto alternativo](./docs/images/SudokuBaseArbol.png)
+![Texto alternativo](./docs/images/SudokuBaseTiempo.png)
 
 ---
 
@@ -125,8 +125,8 @@ Esta estrategia selecciona primero la variable con el dominio más restringido (
 - En dominios pequeños (como el 1..9 de Sudoku), el beneficio puede ser marginal.  
 - La búsqueda determinista puede generar backtracking extenso si las asignaciones iniciales no conducen rápidamente a una solución.
 
-![Texto alternativo](docs/images/SudokuEstrategia1Arbol.png)
-![Texto alternativo](docs/images/SudokuEstrategia1Tiempo.png)
+![Texto alternativo](./docs/images/SudokuEstrategia1Arbol.png)
+![Texto alternativo](./docs/images/SudokuEstrategia1Tiempo.png)
 
 ---
 
@@ -142,8 +142,8 @@ Utiliza *first_fail* para seleccionar variables críticas y aplica *indomain_spl
 - En Sudoku, donde el dominio es reducido, la división del dominio tiene un impacto limitado.  
 - Puede generar una exploración dispersa y menos determinista del espacio de soluciones.
 
-![Texto alternativo](docs/images/SudokuEstrategia2Arbol.png)
-![Texto alternativo](docs/images/SudokuEstrategia2Tiempo.png)
+![Texto alternativo](./docs/images/SudokuEstrategia2Arbol.png)
+![Texto alternativo](./docs/images/SudokuEstrategia2Tiempo.png)
 
 ---
 
