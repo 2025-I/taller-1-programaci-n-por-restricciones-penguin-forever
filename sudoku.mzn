@@ -7,7 +7,7 @@ set of int: DOMAIN = 1..9;  % Números del 1 al 9
 
 
 % Definición del array bidimensional del archivo .dzn
-array[DOMAIN, DOMAIN] of var int: exampleSudokuBoard; 
+array[DOMAIN, DOMAIN] of int: exampleSudokuBoard; 
 
 
 % Definición del tablero donde se calculará la solución
@@ -42,14 +42,15 @@ constraint alldifferent([solvedSudokuBoard[i,j] | i in BLOCK3, j in BLOCK3]);
 
 % Restricción para asegurar que los valores predefinidos en el tablero inicial se mantengan en la solución
 constraint forall(i,j in DOMAIN) (
-    if exampleSudokuBoard[i,j] in DOMAIN
+    if exampleSudokuBoard[i,j] != 0 
       then solvedSudokuBoard[i,j] = exampleSudokuBoard[i,j]
     else true
     endif
 );
         
         
-solve satisfy;
+solve :: int_search([solvedSudokuBoard[i,j] | i in DOMAIN, j in DOMAIN],
+                    first_fail, indomain_split, complete) satisfy;
 
 
 output [ show(solvedSudokuBoard[i, j]) ++ (if j == 9 then "\n" else " " endif) | i in DOMAIN, j in DOMAIN ];
